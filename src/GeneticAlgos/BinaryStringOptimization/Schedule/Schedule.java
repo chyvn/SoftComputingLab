@@ -8,23 +8,28 @@ import java.util.Random;
 public class Schedule {
 
     int schedule[];
+
     Schedule(TargetSystem system) {
         schedule = new int[system.processes.length];
         for (int i = 0; i < schedule.length; i++) {
             Random random = new Random();
-            schedule[i] = (random.nextInt() * 10000) % system.processors.length;
+            schedule[i] = (int) ((Math.random() * 100) % system.processors.length);
+            int a = 6;
         }
     }
 
     public double fitness(TargetSystem system) {
         double cost = 0;
 
-        int i = 0;
-        for (int a : schedule) {
-            cost += system.processors[a] / system.processes[i];
-            ++i;
+        for (int i = 0; i < schedule.length; i++) {
+            cost += system.processes[i] / system.processors[schedule[i]];
         }
 
         return cost;
+    }
+
+    public void print() {
+        for (int i = 0; i < schedule.length; i++) System.out.print(schedule[i] + " ");
+        System.out.println();
     }
 }

@@ -1,7 +1,5 @@
 package GeneticAlgos.BinaryStringOptimization.Schedule;
 
-import GeneticAlgos.BinaryStringOptimization.TSP.GA;
-
 import java.util.Scanner;
 
 /**
@@ -19,10 +17,12 @@ public class Driver {
         int populationSize = scanner.nextInt();
         Population population = new Population(populationSize, system);
 
-        //population = GA.evolvePopulation(population);
 
         System.out.println("The evolved population is : ");
-        //population.getFittest.print();
+        Schedule finalSchedule = GA.evolve(population, system);
+        double fitness = finalSchedule.fitness(system);
+        finalSchedule.print();
+        System.out.println("And the fitness value is : " + fitness);
 
     }
 }

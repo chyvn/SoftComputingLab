@@ -11,10 +11,10 @@ public class TargetSystem {
         processes = new int[n];
         processors = new int[m];
         for (int i = 0; i < n; i++) {
-            processes[i] = (int) (Math.random() * 100) + 1;
+            processes[i] = (int) (Math.random() * 10000) + 1;
         }
         for (int i = 0; i < m; i++) {
-            processors[i] = (int) (Math.random() * 10000);
+            processors[i] = (int) (Math.random() * 100) + 1;
         }
     }
 }
